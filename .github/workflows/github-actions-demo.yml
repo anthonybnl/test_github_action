@@ -10,3 +10,7 @@ jobs:
       - name: Check out repository code
         uses: actions/checkout@v6
       - run: python python_job.py
+
+  # Déclenchement planifié (CRON)
+  schedule:
+    - cron: "* * * * *" # Tous les jours à 2h du matin
