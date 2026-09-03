@@ -13,3 +13,9 @@ jobs:
       - name: Check out repository code
         uses: actions/checkout@v6
       - run: python python_job.py
+      - run: echo "coucou" > result.txt
+      - name: Archive code coverage results
+        uses: actions/upload-artifact@v4
+        with:
+          name: upload-my-result
+          path: result.txt
