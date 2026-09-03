@@ -1,4 +1,4 @@
 import os
 
-a = os.environ.get("SECRET_API_KEY", 2)
+a = os.environ.get("super_secret", 2)
 print("coucou", a)
