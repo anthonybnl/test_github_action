@@ -19,3 +19,6 @@ jobs:
         with:
           name: upload-my-result
           path: result.txt
+      - run: python python_job.py
+        env:
+          super_secret: ${{ secrets.SuperSecret }}
