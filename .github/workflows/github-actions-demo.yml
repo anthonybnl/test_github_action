@@ -19,6 +19,9 @@ jobs:
         with:
           name: upload-my-result
           path: result.txt
+      - run: env
+        env:
+          super_secret: ${{ secrets.SECRET_API_KEY }}
       - run: python python_job.py
         env:
-          super_secret: ${{ secrets.SuperSecret }}
+          super_secret: ${{ secrets.SECRET_API_KEY }}
