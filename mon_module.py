@@ -3,4 +3,4 @@ def addition(a, b):
 
 
 def soustraction(a, b):
-    return a + b
+    return a - b
