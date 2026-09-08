@@ -13,7 +13,6 @@ jobs:
       - name: Build BUT DO NOT PUSH
         uses: docker/build-push-action@v7
         with:
-          push: false
-          tags: ${{ env.IMAGE_NAME }}
+          tags: localhost:5000/${{ env.IMAGE_NAME }}
       - name: Lancement de l'image
-        run: docker run --rm ${{ env.IMAGE_NAME }} 13 7
+        run: docker run --rm localhost:5000/${{ env.IMAGE_NAME }} 13 7
