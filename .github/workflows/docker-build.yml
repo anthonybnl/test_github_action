@@ -1,4 +1,6 @@
 name: pipeline_docker_build
+env:
+  IMAGE_NAME: user/app:latest
 on:
   push:
 jobs:
@@ -12,3 +14,6 @@ jobs:
         uses: docker/build-push-action@v7
         with:
           push: false
+          tags: ${{ env.IMAGE_NAME }}
+      - name: Lancement de l'image
+        run: docker run --rm ${{ env.IMAGE_NAME }} 13 7
