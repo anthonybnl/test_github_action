@@ -24,19 +24,19 @@ jobs:
         name: Tests unitaires
       - run: echo "✅ All steps completed successfully!"
 
-  deploy:
-    runs-on: ubuntu-latest
-    needs: test
-    steps:
-      - name: Check out repository code
-        uses: actions/checkout@v6
-      - run: |
-          echo "deploying to $SSH_HOST"
-          mkdir ~/.ssh
-          ssh-keyscan -H $SSH_HOST > ~/.ssh/known_hosts
-          echo $SSH_PASSWORD > ./password.txt
-          sshpass -f ./password.txt scp *.py ubuntu@$SSH_HOST:~/AB/
-        shell: bash
-        env:
-          SSH_HOST: ${{ vars.SSH_HOST }}
-          SSH_PASSWORD: ${{ secrets.SSH_PASSWORD }}
+  # deploy:
+  #   runs-on: ubuntu-latest
+  #   needs: test
+  #   steps:
+  #     - name: Check out repository code
+  #       uses: actions/checkout@v6
+  #     - run: |
+  #         echo "deploying to $SSH_HOST"
+  #         mkdir ~/.ssh
+  #         ssh-keyscan -H $SSH_HOST > ~/.ssh/known_hosts
+  #         echo $SSH_PASSWORD > ./password.txt
+  #         sshpass -f ./password.txt scp *.py ubuntu@$SSH_HOST:~/AB/
+  #       shell: bash
+  #       env:
+  #         SSH_HOST: ${{ vars.SSH_HOST }}
+  #         SSH_PASSWORD: ${{ secrets.SSH_PASSWORD }}

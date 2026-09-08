@@ -1,0 +1,14 @@
+name: pipeline_docker_build
+on:
+  push:
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "bonjour"
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v4
+      - name: Build BUT DO NOT PUSH
+        uses: docker/build-push-action@v7
+        with:
+          push: false
