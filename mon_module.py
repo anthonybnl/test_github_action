@@ -18,7 +18,7 @@ def main():
 
     result = addition(a, b)
 
-    print("résultat :")
+    print(f"l'addition de {a} et {b} donne :")
     print(result)
 
 
